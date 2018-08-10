@@ -15,6 +15,10 @@ public class CartPage extends BasePage
     private By exclusive_range = By.xpath("/html/body/div[2]/div[1]/div[2]/div[1]/div/div/div/div[4]/div[1]/div[1]/ul/li/ul/li[1]/a");
     private By royal_liqueur_salted_caramel = By.xpath("/html/body/div[2]/div[3]/div[2]/div[1]/div[2]/div/div[1]/div[4]/div/ul/div/div/li[1]/div[1]/a/img");
     private By NumberOfItemsInCart = By.xpath("/html/body/div[2]/div[1]/div[1]/div[1]/div[5]/ul/li[2]/ul/li[3]/div/div[1]/span[2]");
+    private By addToCartOption = By.xpath("/html/body/div[2]/div[3]/div[2]/div/div[3]/form/div[2]/div[2]/div/div/div[3]/div[1]/div[2]/div/div[2]/button");
+    private By itemPrice = By.xpath("/html/body/div[2]/div[3]/div[2]/div/div[3]/form/div[2]/div[2]/div/div/div[3]/div[1]/div[1]/span/span");
+    private By itemName = By.xpath("/html/body/div[2]/div[3]/div[2]/div/div[3]/form/div[2]/div[2]/div/div/div[1]/h1");
+
 
     public void selectCartOption()
     {
@@ -41,9 +45,26 @@ public class CartPage extends BasePage
         syscoLabUIOgm.click(royal_liqueur_salted_caramel);
     }
 
-    public void numberOfItemsInCart()
+    public int numberOfItemsInCart()
     {
-        syscoLabUIOgm.getText(NumberOfItemsInCart);
+        return Integer.parseInt(syscoLabUIOgm.getText(NumberOfItemsInCart));
+    }
+
+    public void setAddToCartOption()
+    {
+        syscoLabUIOgm.click(addToCartOption);
+    }
+
+    public String getItemPrice()
+    {
+       String price = syscoLabUIOgm.getText(itemPrice);
+       return price;
+    }
+
+    public String getItemName()
+    {
+        String name = syscoLabUIOgm.getText(itemName);
+        return name;
     }
 
 }

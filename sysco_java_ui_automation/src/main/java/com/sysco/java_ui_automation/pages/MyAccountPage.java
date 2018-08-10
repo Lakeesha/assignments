@@ -5,9 +5,8 @@ import org.openqa.selenium.By;
 
 public class MyAccountPage extends BasePage
 {
-    private By myAccountLink = By.xpath("/html/body/div[2]/div[1]/div[1]/div[1]/div[5]/ul/li[1]/ul/li[2]/ul/li/a");
+//    private By myAccountLink = By.xpath("/html/body/div[2]/div[1]/div[1]/div[1]/div[5]/ul/li[1]/ul/li[2]/ul/li/a[@title='My Account']");
     private By verifyThePage = By.xpath("/html/body/div[3]/div[3]/div[2]/div/div/form/div/div/div[1]/h3");
-    private String verifyThePageMEssage = "";
     private By emailField = By.id("email");
     private By passwordField = By.id("pass");
     private By loginButton = By.id("send2");
@@ -22,12 +21,14 @@ public class MyAccountPage extends BasePage
 
     public void navigateToMyAccount()
     {
-        syscoLabUIOgm.click(myAccountLink);
+       // syscoLabUIOgm.waitTillElementLoaded(myAccountLink,200);
+//        syscoLabUIOgm.click(myAccountLink);
+        syscoLabUIOgm.navigateTo("https://www.bundabergrum.com.au/customer/account");
     }
 
     public boolean verifyMyAccountPage()
     {
-        return syscoLabUIOgm.isDisplayed(verifyThePage);
+        return syscoLabUIOgm.getText(verifyThePage).equalsIgnoreCase("great to see you again!");
     }
 
     public boolean getEmailField()
@@ -82,17 +83,20 @@ public class MyAccountPage extends BasePage
 
     public String getNullPasswordMessage()
     {
-        return syscoLabUIOgm.getText(passwordRequire);
+        String message = syscoLabUIOgm.getText(passwordRequire);
+        return message;
     }
 
     public String requireMessageValue()
     {
-        return RequireMessage;
+        String message = RequireMessage;
+        return message;
     }
 
     public String getNullEmailMessage()
     {
-        return syscoLabUIOgm.getText(emailRequire);
+        String message = syscoLabUIOgm.getText(emailRequire);
+        return message;
     }
 
 }

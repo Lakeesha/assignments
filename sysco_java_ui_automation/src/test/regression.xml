@@ -1,8 +1,9 @@
 <?xml version="1.0-SNAPSHOT" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0-SNAPSHOT.dtd" >
-<suite name="regression" verbose="1" configfailurepolicy="continue">
-    <test name="regression">
+<suite name="bundabergrum_test" verbose="1" configfailurepolicy="continue">
+    <test name="bundabergrum_test">
         <packages>
-            <package name="com.sysco.java_ui_automation.tests"/>
+            <package name="com.sysco.java_ui_automation.tests.BundabergrumTest"/>
+        </packages>
     </test>
 </suite>

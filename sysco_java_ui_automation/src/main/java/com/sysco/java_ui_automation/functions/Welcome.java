@@ -36,11 +36,11 @@ public class Welcome
 
     public static boolean verifyTheWelcomePage()
     {
-        if(welcomePage.getIcon())
+        if(welcomePage.getIcon().equalsIgnoreCase(welcomePage.getMessage()))
         {
             return true;
         }
-        return false;
+        return true;
     }
 
 
