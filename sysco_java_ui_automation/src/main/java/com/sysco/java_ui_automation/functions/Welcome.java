@@ -26,6 +26,23 @@ public class Welcome
         return false;
     }
 
+    public static void selectValidDateOfBirth() throws InterruptedException
+    {
+        welcomePage.selectValidDate();
+        welcomePage.selectValidMonth();
+        welcomePage.selectValidYear();
+        welcomePage.clickConfirmButton();
+    }
+
+    public static boolean verifyTheWelcomePage()
+    {
+        if(welcomePage.getIcon())
+        {
+            return true;
+        }
+        return false;
+    }
+
 
 }
 

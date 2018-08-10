@@ -2,56 +2,41 @@ package com.sysco.java_ui_automation.pages;
 
 import com.syscolab.qe.core.ui.SyscoLabUI;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class WelcomePage
+public class WelcomePage extends BasePage
 {
-    protected static SyscoLabUI syscoLabUIOgmWelcome;
-
     private By ageSelectDate = By.id("age_select_day");
-    private By selectInvalidDate = By.xpath("//*[@id=\"age_select_day\"]//option[2]");
     private By ageSelectMonth = By.id("age_select_month");
-    private By selectInvalidMonth = By.xpath("//*[@id=\"age_select_month\"]//option[2]");
     private By ageSelectYear = By.id("age_select_year");
-    private By selectInvalidYear = By.xpath("//*[@id=\"age_select_year\"]//option[2]");
     private By ageMissingMessage = By.id("age_missing_message");
     private By ageConfirmButton = By.id("age_confirm_btn");
     private String ageInvalidMessage = "Sorry, your age or location does not permit you to enter at this time.";
-    private By selectValidDate = By.xpath("//*[@id=\"age_select_day\"]//option[2]");
-    private By selectValidMonth = By.xpath("//*[@id=\"age_select_month\"]//option[2]");
-    private By selectValidYear = By.xpath("//*[@id=\"age_select_year\"]//option[2]");
     private By verifyValidDate = By.xpath("/html/body/div[2]/div[1]/div[2]/div[2]/a[1]/img");
 
     public void selectInvalidDate() throws InterruptedException
     {
-        syscoLabUIOgmWelcome.waitTillElementLoaded(ageSelectDate,3000);
-        syscoLabUIOgmWelcome.click(ageSelectDate);
-        syscoLabUIOgmWelcome.waitTillElementLoaded(selectInvalidDate,3000);
-        syscoLabUIOgmWelcome.click(selectInvalidDate);
+        syscoLabUIOgm.waitTillElementLoaded(ageSelectDate,3000);
+        syscoLabUIOgm.selectFromDropDown(ageSelectDate,"2");
     }
 
     public void selectInvalidMonth() throws InterruptedException
     {
-        syscoLabUIOgmWelcome.click(ageSelectMonth);
-        syscoLabUIOgmWelcome.click(selectInvalidMonth);
+        syscoLabUIOgm.selectFromDropDown(ageSelectMonth,"January");
     }
 
     public void selectInvalidYear() throws InterruptedException
     {
-        syscoLabUIOgmWelcome.click(ageSelectYear);
-        wait();
-        syscoLabUIOgmWelcome.click(selectInvalidYear);
+        syscoLabUIOgm.selectFromDropDown(ageSelectYear,"2003");
     }
 
     public void clickConfirmButton()
     {
-        syscoLabUIOgmWelcome.click(ageConfirmButton);
+        syscoLabUIOgm.click(ageConfirmButton);
     }
 
-    public By getInvalidErrorMessage()
+    public String getInvalidErrorMessage()
     {
-        return ageMissingMessage;
+        return syscoLabUIOgm.getValue(ageMissingMessage);
     }
 
     public String setAgeInvalidMessage()
@@ -61,27 +46,21 @@ public class WelcomePage
 
     public void selectValidDate() throws InterruptedException
     {
-        syscoLabUIOgmWelcome.click(ageSelectDate);
-        wait();
-        syscoLabUIOgmWelcome.click(selectValidDate);
+        syscoLabUIOgm.selectFromDropDown(ageSelectDate,"2");
     }
 
     public void selectValidMonth() throws InterruptedException
     {
-        syscoLabUIOgmWelcome.click(ageMissingMessage);
-        wait();
-        syscoLabUIOgmWelcome.click(selectValidMonth);
+        syscoLabUIOgm.selectFromDropDown(ageSelectMonth,"January");
     }
 
     public void selectValidYear() throws InterruptedException
     {
-        syscoLabUIOgmWelcome.click(ageSelectYear);
-        wait();
-        syscoLabUIOgmWelcome.click(selectValidYear);
+        syscoLabUIOgm.selectFromDropDown(ageSelectYear,"1993");
     }
 
     public boolean getIcon()
     {
-        return syscoLabUIOgmWelcome.isDisplayed(verifyValidDate);
+        return syscoLabUIOgm.isDisplayed(verifyValidDate);
     }
 }

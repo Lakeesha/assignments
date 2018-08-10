@@ -2,13 +2,9 @@ package com.sysco.java_ui_automation.pages;
 
 import com.syscolab.qe.core.ui.SyscoLabUI;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class MyAccountPage
+public class MyAccountPage extends BasePage
 {
-    protected static SyscoLabUI syscoLabUIOgm;
-
     private By myAccountLink = By.xpath("/html/body/div[2]/div[1]/div[1]/div[1]/div[5]/ul/li[1]/ul/li[2]/ul/li/a");
     private By verifyThePage = By.xpath("/html/body/div[3]/div[3]/div[2]/div/div/form/div/div/div[1]/h3");
     private String verifyThePageMEssage = "";
@@ -16,10 +12,87 @@ public class MyAccountPage
     private By passwordField = By.id("pass");
     private By loginButton = By.id("send2");
     private By verifyLogin = By.xpath("/html/body/div[2]/div[3]/div[2]/div[1]/div/div[3]/div[1]/h2");
-//    public String enterEmail = "williamjacob802@gmail.com ";
-//    public String enterPassword = "12345678";
-//    public WebElement verifyLogin = driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[2]/div[1]/div/div[3]/div[1]/h2"));
-//    public String userName= "William Jacob";
+    private String enterEmail = "williamjacob802@gmail.com ";
+    private String enterPassword = "12345678";
+    private String userName= "William Jacob";
+    private By passwordRequire = By.id("//*[@id=\"advice-required-entry-pass\"");
+    private String RequireMessage = "This is a required field.";
+    private By emailRequire = By.id("//*[@id=\"advice-required-entry-email\"]");
 
+
+    public void navigateToMyAccount()
+    {
+        syscoLabUIOgm.click(myAccountLink);
+    }
+
+    public boolean verifyMyAccountPage()
+    {
+        return syscoLabUIOgm.isDisplayed(verifyThePage);
+    }
+
+    public boolean getEmailField()
+    {
+        return syscoLabUIOgm.isDisplayed(emailField);
+    }
+
+    public boolean getPasswordField()
+    {
+        return syscoLabUIOgm.isDisplayed(passwordField);
+    }
+
+    public boolean getLoginButton()
+    {
+        return syscoLabUIOgm.isDisplayed(loginButton);
+    }
+
+    public void setEmail(String value)
+    {
+        syscoLabUIOgm.sendKeys(emailField,value);
+    }
+
+    public void setPassword(String value)
+    {
+        syscoLabUIOgm.sendKeys(passwordField,value);
+    }
+
+    public void clickLoginButton()
+    {
+        syscoLabUIOgm.click(loginButton);
+    }
+
+    public String emailValue()
+    {
+        return enterEmail;
+    }
+
+    public String passwordValue()
+    {
+        return enterPassword;
+    }
+
+    public String verifyLogin()
+    {
+        return syscoLabUIOgm.getText(verifyLogin);
+    }
+
+    public String myAccountUser()
+    {
+        return userName;
+    }
+
+    public String getNullPasswordMessage()
+    {
+        return syscoLabUIOgm.getText(passwordRequire);
+    }
+
+    public String requireMessageValue()
+    {
+        return RequireMessage;
+    }
+
+    public String getNullEmailMessage()
+    {
+        return syscoLabUIOgm.getText(emailRequire);
+    }
 
 }

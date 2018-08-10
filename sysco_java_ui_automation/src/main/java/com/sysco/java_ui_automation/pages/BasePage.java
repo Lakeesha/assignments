@@ -5,10 +5,12 @@ import com.syscolab.qe.core.ui.web.SyscoLabWUI;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * Created by Rifad on 5/21/18.
  */
-public class LoginPage
+public class BasePage
 {
     protected static SyscoLabUI syscoLabUIOgm;
     private By txtGoogleSearch = By.id("lst-ib");
@@ -32,4 +34,8 @@ public class LoginPage
         syscoLabUIOgm.sendKeys(txtGoogleSearch, searchString);
     }
 
+    public void stopLoad()
+    {
+        syscoLabUIOgm.driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+    }
 }
