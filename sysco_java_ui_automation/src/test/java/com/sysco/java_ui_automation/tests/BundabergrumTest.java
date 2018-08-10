@@ -18,7 +18,7 @@ public class BundabergrumTest extends TestBase
     @BeforeClass
     public void init(ITestContext iTestContext)
     {
-        iTestContext.setAttribute("feature", "Checkout");
+        iTestContext.setAttribute("feature", "Bundabergrum - Checkout");
     }
 
     @BeforeTest
