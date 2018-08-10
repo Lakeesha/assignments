@@ -16,7 +16,7 @@ public class CartPage extends BasePage
     private By NumberOfItemsInCart = By.xpath("/html/body/div[2]/div[1]/div[1]/div[1]/div[5]/ul/li[2]/ul/li[3]/div/div[1]/span[2]");
     private By addToCartOption = By.xpath("/html/body/div[2]/div[3]/div[2]/div/div[3]/form/div[2]/div[2]/div/div/div[3]/div[1]/div[2]/div/div[2]/button");
     private By itemPrice = By.xpath("/html/body/div[2]/div[3]/div[2]/div/div[3]/form/div[2]/div[2]/div/div/div[3]/div[1]/div[1]/span/span");
-    private By itemName = By.xpath("/html/body/div[2]/div[3]/div[2]/div/div[3]/form/div[2]/div[2]/div/div/div[1]/h1");
+    private By itemName = By.xpath("/html/body/div[2]/div[1]/div[1]/div[1]/div[5]/ul/li[2]/ul/li[3]/div/div[2]/div/ol/li/div/p/a");
     private By cartItem = By.xpath("/html/body/div[2]/div[1]/div[1]/div[1]/div[5]/ul/li[2]/ul/li[3]/div/div[2]/div/ol/li/a/img");
     private By cartItemPrice = By.xpath("/html/body/div[2]/div[3]/div[2]/div/div[1]/form/fieldset/div/div[2]/div/div/div[3]/div[5]/span/span");
     private By cartItemName = By.xpath("/html/body/div[2]/div[3]/div[2]/div/div[1]/form/fieldset/div/div[2]/div/div/div[2]/h2/a");
@@ -68,8 +68,8 @@ public class CartPage extends BasePage
 
     public String getItemPrice()
     {
-       String price = syscoLabUIOgm.getText(itemPrice);
-       return price;
+      return syscoLabUIOgm.getText(itemPrice);
+
     }
 
     public String getItemName()

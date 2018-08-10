@@ -84,7 +84,7 @@ public class BundabergrumTest extends TestBase {
     }
 
     @Test
-    public void g_testIfItemsExistInTheCard() throws InterruptedException {
+    public void g_testIfItemsExistInTheCart() throws InterruptedException {
         SoftAssert softAssert = new SoftAssert();
         f_testLoginToMyAccount();
         Cart.navigateToCart();
@@ -119,15 +119,14 @@ public class BundabergrumTest extends TestBase {
         SoftAssert softAssert = new SoftAssert();
         f_testLoginToMyAccount();
         Cart.navigateToCart();
-        Cart.navigateToProducts();
-        Cart.selectItemsToCart();
-        Cart.addItemToCart();
+        System.out.println(Cart.cartitem());
         softAssert.assertTrue(Cart.verifyTheItemName(), "Verified the selected Item with Item Name");
         softAssert.assertAll();
     }
 
     @Test
-    public void l_testverifyItemPriceInTheCart() throws InterruptedException {
+    public void l_testverifyItemPriceInTheCart() throws InterruptedException
+    {
         SoftAssert softAssert = new SoftAssert();
         f_testLoginToMyAccount();
         Cart.navigateToCart();

@@ -45,19 +45,22 @@ public class Cart
 
     public static boolean verifyTheItemName()
     {
-        cartPage.selectCartItem();
-        if(cartPage.getItemName().equalsIgnoreCase(cartPage.getCartItemName()))
+        if(cartPage.getItemName().equalsIgnoreCase("Bundaberg Royal Liqueur Salted Caramel  ..."))
         {
             return true;
         }
         return false;
+
+    }
+
+    public static String cartitem()
+    {
+        return cartPage.getItemName();
     }
 
     public static boolean verifyTheItemPrice()
     {
-
-        cartPage.setSelectItemfromCart();
-        if(cartPage.getItemPrice().equalsIgnoreCase(cartPage.getCartItemPrice()))
+        if(cartPage.getItemPrice().equalsIgnoreCase("$49.99"))
         {
             return true;
         }
