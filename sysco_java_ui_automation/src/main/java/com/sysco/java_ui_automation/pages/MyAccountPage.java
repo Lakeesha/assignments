@@ -5,24 +5,23 @@ import org.openqa.selenium.By;
 
 public class MyAccountPage extends BasePage
 {
-//    private By myAccountLink = By.xpath("/html/body/div[2]/div[1]/div[1]/div[1]/div[5]/ul/li[1]/ul/li[2]/ul/li/a[@title='My Account']");
     private By verifyThePage = By.xpath("/html/body/div[3]/div[3]/div[2]/div/div/form/div/div/div[1]/h3");
     private By emailField = By.id("email");
     private By passwordField = By.id("pass");
     private By loginButton = By.id("send2");
     private By verifyLogin = By.xpath("/html/body/div[2]/div[3]/div[2]/div[1]/div/div[3]/div[1]/h2");
-    private String enterEmail = "williamjacob802@gmail.com ";
+    private String enterEmail = "williamjacob802@gmail.com";
     private String enterPassword = "12345678";
     private String userName= "William Jacob";
     private By passwordRequire = By.id("//*[@id=\"advice-required-entry-pass\"");
     private String RequireMessage = "This is a required field.";
     private By emailRequire = By.id("//*[@id=\"advice-required-entry-email\"]");
+    private By invalidMessage = By.xpath("/html/body/div[3]/div[3]/div[2]/div/div/ul/li/ul/li/span");
+    private By requiredField = By.xpath("/html/body/div[3]/div[3]/div[2]/div/div/form/div/div/div[1]/p");
 
 
     public void navigateToMyAccount()
     {
-       // syscoLabUIOgm.waitTillElementLoaded(myAccountLink,200);
-//        syscoLabUIOgm.click(myAccountLink);
         syscoLabUIOgm.navigateTo("https://www.bundabergrum.com.au/customer/account");
     }
 
@@ -93,10 +92,18 @@ public class MyAccountPage extends BasePage
         return message;
     }
 
-    public String getNullEmailMessage()
+    public boolean getNullEmailMessage()
     {
-        String message = syscoLabUIOgm.getText(emailRequire);
-        return message;
+        return syscoLabUIOgm.isDisplayed(emailRequire);
     }
 
+    public boolean setInvalidMessage()
+    {
+        return syscoLabUIOgm.isDisplayed(invalidMessage);
+    }
+
+    public boolean setRequiredField()
+    {
+        return syscoLabUIOgm.isDisplayed(requiredField);
+    }
 }

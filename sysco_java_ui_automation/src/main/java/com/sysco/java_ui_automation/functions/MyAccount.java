@@ -54,7 +54,8 @@ public class MyAccount
 
     public static boolean verifyValidLogin()
     {
-        if(myAccountPage.verifyLogin().contains(myAccountPage.myAccountUser()))
+        String username = "HELLO, "+myAccountPage.myAccountUser()+"!";
+        if(myAccountPage.verifyLogin().equalsIgnoreCase(username))
         {
             return true;
         }
@@ -78,7 +79,7 @@ public class MyAccount
 
     public static boolean verifyNullPassword()
     {
-        if(myAccountPage.getNullPasswordMessage().equalsIgnoreCase(myAccountPage.requireMessageValue()))
+        if(myAccountPage.setInvalidMessage())
         {
             return true;
         }
@@ -87,7 +88,7 @@ public class MyAccount
 
     public static boolean verifyNullEmail()
     {
-        if(myAccountPage.getNullEmailMessage().equalsIgnoreCase(myAccountPage.requireMessageValue()))
+        if(myAccountPage.setRequiredField())
         {
             return true;
         }

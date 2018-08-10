@@ -34,6 +34,7 @@ public class Cart
     public static void selectItemsToCart()
     {
         cartPage.selectExclusiveRange();
+        cartPage.setExclusive();
         cartPage.selectItem();
     }
 
@@ -41,4 +42,59 @@ public class Cart
     {
         cartPage.setAddToCartOption();
     }
+
+    public static boolean verifyTheItemName()
+    {
+        cartPage.selectCartItem();
+        if(cartPage.getItemName().equalsIgnoreCase(cartPage.getCartItemName()))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean verifyTheItemPrice()
+    {
+
+        cartPage.setSelectItemfromCart();
+        if(cartPage.getItemPrice().equalsIgnoreCase(cartPage.getCartItemPrice()))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean verifyTheFirstName()
+    {
+        cartPage.setProceedToCheckOut();
+        if(cartPage.setBillingFirstName().equalsIgnoreCase("william"))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean verifyTheLastName()
+    {
+        cartPage.setProceedToCheckOut();
+        if(cartPage.setBillingLastName().equalsIgnoreCase("jacob"))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static void setBillingFieldsTONullAndVerify()
+    {
+        cartPage.setProceedToCheckOut();
+        cartPage.setBillingFirstNameNull();
+        cartPage.setBillingLastNameNull();
+        cartPage.setBillingStreetAddressNull();
+        cartPage.setBillingStreetAddress2Null();
+        cartPage.setBillingPostalCodeNull();
+        cartPage.setBillingTelephoneNull();
+        cartPage.setContinueCheckoutButton();
+    }
+
+
 }
